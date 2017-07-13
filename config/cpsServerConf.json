@@ -1,0 +1,8 @@
+{
+  "cps-servers": [
+    {
+      "soapServerName": "SyncEsimProvision",
+      "MOType": "ESIMSubscription@http://schemas.ericsson.com/ma/ESIM/"
+    }
+  ]
+}
