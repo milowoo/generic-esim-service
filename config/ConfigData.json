@@ -1,0 +1,11 @@
+{
+  "dmsDatabaseChoice":1,
+  "dmsPgApplicationDatabaseIpAddress":"127.0.0.1",
+  "dmsPgPort":5432,
+  "dmsPgApplicationIdPassword":"ses",
+  "dmsPgApplicationId":"ses",
+  "dmsPgApplicationDatabase":"tokyo12",
+  "cpsSiteName":"0",
+  "palSslCaFile": "config/ca.pem",
+  "prsPushTokenServer": "http://root:wapwap12@10.175.179.83:8080"
+}
