@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema targetNamespace="http://schemas.ericsson.com/pg/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://schemas.ericsson.com/pg/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="PGFault">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="errorcode" type="xs:integer"/>
+				<xs:element name="errormessage" type="xs:string" maxOccurs="unbounded"/>
+				<xs:element name="errordetails" type="xs:string" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
