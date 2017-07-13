@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://schemas.ericsson.com/ma/ESIM/" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://schemas.ericsson.com/ma/ESIM/" xmlns:xs="http://www.w3.org/2001/XMLSchema" jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc">
+	<xs:simpleType name="imsiType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{5,15}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="msisdnType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{6,15}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="devRealmType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="epsProfileIdType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="epsOdbType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="ODB-ALL"/>
+			<xs:enumeration value="ODB-HPLMN-APN"/>
+			<xs:enumeration value="ODB-VPLMN-APN"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BinaryType">
+		<xs:restriction base="xs:unsignedByte">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	        <xs:simpleType name="epsSessionTransferNumberType">
+                <xs:restriction base="xs:string">
+                        <xs:minLength value="5" />
+                        <xs:maxLength value="15" />
+                        <xs:pattern value="[0-9]*" />
+                </xs:restriction>
+        </xs:simpleType>
+		        <xs:simpleType name="epsCommonMsisdnType">
+                <xs:restriction base="xs:string">
+                        <xs:minLength value="5" />
+                        <xs:maxLength value="15" />
+                        <xs:pattern value="[0-9]*" />
+                </xs:restriction>
+        </xs:simpleType>
+		        <xs:simpleType name="serviceProfileIdType">
+                <xs:restriction base="xs:string">
+                        <xs:maxLength value="66" />
+                </xs:restriction>
+        </xs:simpleType>
+		        <xs:simpleType name="maxNumberOfContactsType">
+                <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1" />
+                        <xs:maxInclusive value="200" />
+                </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="ProfileIdType">
+                <xs:restriction base="xs:nonNegativeInteger">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="8191"/>
+                </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="GPRSProfileIdType">
+                <xs:restriction base="xs:nonNegativeInteger">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="8160"/>
+                </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="CamelProfileIdType">
+                <xs:restriction base="xs:nonNegativeInteger">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="8160"/>
+                </xs:restriction>
+        </xs:simpleType>
+
+		
+</xs:schema>
