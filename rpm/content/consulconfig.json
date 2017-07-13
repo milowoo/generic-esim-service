@@ -1,0 +1,12 @@
+{
+    "service" : {
+        "name" : "genericesim",
+        "address": "${internal_data_network}",
+        "port" : 9220,
+        "check" : {
+            "http" : "http://${internal_data_network}:9220/health",
+            "interval" : "10s",
+            "timeout" : "5s"
+        }
+    }
+}
