@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+
+<definitions targetNamespace="http://schemas.ericsson.com/cai3g1.2/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:cai3g="http://schemas.ericsson.com/cai3g1.2/" xmlns:ns="http://schemas.ericsson.com/ma/ESIM/">
+	<types>
+		<xs:schema targetNamespace="http://schemas.ericsson.com/cai3g1.2/" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://schemas.ericsson.com/cai3g1.2/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:esim="http://schemas.ericsson.com/ma/ESIM/">
+			<xs:include schemaLocation="./schema/cai3g1.2_provisioning.xsd"/>
+			<xs:import namespace="http://schemas.ericsson.com/ma/ESIM/" schemaLocation="./schema/ESIMSubscription.xsd"/>
+			<xs:element name="Create">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MOType" type="xs:string" fixed="ESIMSubscription@http://schemas.ericsson.com/ma/ESIM/"/>
+						<xs:element name="MOId">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="esim:imsi"/>
+									<xs:element ref="esim:msisdn"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="MOAttributes" minOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="esim:CreateESIMSubscription"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CreateResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MOId">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="esim:imsi"/>
+									<xs:element ref="esim:msisdn"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Delete">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MOType" type="xs:string" fixed="ESIMSubscription@http://schemas.ericsson.com/ma/ESIM/"/>
+						<xs:element name="MOId">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="esim:imsi"/>
+									<xs:element ref="esim:msisdn"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="MOAttributes" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="esim:DeleteESIMSubscription"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DeleteResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MOId">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="esim:imsi"/>
+									<xs:element ref="esim:msisdn"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Set">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MOType" type="xs:string" fixed="ESIMSubscription@http://schemas.ericsson.com/ma/ESIM/"/>
+						<xs:element name="MOId">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:sequence>
+										<xs:element ref="esim:imsi"/>
+										<xs:element ref="esim:msisdn"/>
+									</xs:sequence>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="MOAttributes" minOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="esim:SetESIMSubscription"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SetResponse"/>
+		</xs:schema>
+	</types>
+	<message name="CreateRequest">
+		<part name="parameters" element="cai3g:Create"/>
+	</message>
+	<message name="CreateResponse">
+		<part name="parameters" element="cai3g:CreateResponse"/>
+	</message>
+	<message name="SetRequest">
+		<part name="parameters" element="cai3g:Set"/>
+	</message>
+	<message name="SetResponse">
+		<part name="parameters" element="cai3g:SetResponse"/>
+	</message>
+	<message name="DeleteRequest">
+		<part name="parameters" element="cai3g:Delete"/>
+	</message>
+	<message name="DeleteResponse">
+		<part name="parameters" element="cai3g:DeleteResponse"/>
+	</message>
+	<message name="HeadInfo">
+		<part name="sessionId" element="cai3g:SessionId"/>
+	</message>
+	<message name="Cai3gFault">
+		<part name="parameters" element="cai3g:Cai3gFault"/>
+	</message>
+	<message name="Cai3gHeaderFault">
+		<part name="sessionIdFault" element="cai3g:SessionIdFault"/>
+		<part name="transactionIdFault" element="cai3g:TransactionIdFault"/>
+		<part name="sequenceIdFault" element="cai3g:SequenceIdFault"/>
+	</message>
+	<portType name="ESIMSubscription">
+		<operation name="Create">
+			<input message="cai3g:CreateRequest"/>
+			<output message="cai3g:CreateResponse"/>
+			<fault name="Cai3gFault" message="cai3g:Cai3gFault"/>
+		</operation>
+		<operation name="Delete">
+			<input message="cai3g:DeleteRequest"/>
+			<output message="cai3g:DeleteResponse"/>
+			<fault name="Cai3gFault" message="cai3g:Cai3gFault"/>
+		</operation>
+		<operation name="Set">
+			<input message="cai3g:SetRequest"/>
+			<output message="cai3g:SetResponse"/>
+			<fault name="Cai3gFault" message="cai3g:Cai3gFault"/>
+		</operation>
+	</portType>
+	<binding name="ESIMSubscription" type="cai3g:ESIMSubscription">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Create">
+			<soap:operation soapAction="CAI3G#Create" style="document"/>
+			<input>
+				<soap:body use="literal"/>
+				<soap:header message="cai3g:HeadInfo" part="sessionId" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+				<soap:header message="cai3g:HeadInfo" part="sessionId" use="literal">
+					<soap:headerfault message="cai3g:Cai3gHeaderFault" part="sessionIdFault" use="literal"/>
+				</soap:header>
+			</output>
+			<fault name="Cai3gFault">
+				<soap:fault name="Cai3gFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="Delete">
+			<soap:operation soapAction="CAI3G#Delete" style="document"/>
+			<input>
+				<soap:body use="literal"/>
+				<soap:header message="cai3g:HeadInfo" part="sessionId" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+				<soap:header message="cai3g:HeadInfo" part="sessionId" use="literal">
+					<soap:headerfault message="cai3g:Cai3gHeaderFault" part="sessionIdFault" use="literal"/>
+				</soap:header>
+			</output>
+			<fault name="Cai3gFault">
+				<soap:fault name="Cai3gFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="Set">
+			<soap:operation soapAction="CAI3G#Set" style="document"/>
+			<input>
+				<soap:body use="literal"/>
+				<soap:header message="cai3g:HeadInfo" part="sessionId" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+				<soap:header message="cai3g:HeadInfo" part="sessionId" use="literal">
+					<soap:headerfault message="cai3g:Cai3gHeaderFault" part="sessionIdFault" use="literal"/>
+				</soap:header>
+			</output>
+			<fault name="Cai3gFault">
+				<soap:fault name="Cai3gFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+	<service name="CAI3GImplService">
+		<port name="CAI3GImplPort" binding="cai3g:ESIMSubscription">
+			<soap:address location="http://anypg.anyprovisioningprovider.com/cai3g1.2/services/cai3g1.2"/>
+		</port>
+	</service>
+	<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"><!-- disable wrapper style generation -->
+		<jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+	</jaxws:bindings>
+</definitions>
