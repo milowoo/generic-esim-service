@@ -1,0 +1,20 @@
+{
+   "endpoint": "http://localhost:13240",
+    "httpOptions": {
+        "maxSockets": 10,
+        "timeout": 10000
+    },
+    "security": {
+        "WsSecurity": {
+            "username": "cai3guser",
+            "password": "Admin@1234"
+        }
+    },
+    "overrideRootElement": {
+      "namespace": "cai3g",
+      "xmlnsAttributes": [{
+        "name" : "xmlns:cai3g",
+        "value" : "http://schemas.ericsson.com/cai3g1.2/"
+      }]
+   }
+}
