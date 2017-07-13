@@ -1,0 +1,15 @@
+{
+  "itSystem-servers": [
+    {
+      "server-name": "itsystem-server-name-1",
+      "es2PlusPlusInfo": {
+        "es2FQDN": "http://root:wapwap12@localhost:17707",
+        "paths": {
+          "queryImsiByIccidPath": "/esintegration/v1.0/esim/imsi?iccid=",
+          "allocMsisdnByImsiPath": "/esintegration/v1.0/esim/activatemsisdn",
+          "createEsimSubscriptionPath": "/esintegration/v1.0/esim/bss/createEsimSubscription"
+        }
+      }
+    }
+  ]
+}
