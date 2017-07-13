@@ -1,0 +1,23 @@
+{
+    "smdp-servers": [
+        {
+            "server-name": "smdp-server-name-1",
+            "es2PlusPlusInfo": {
+                "es2FQDN": "https://root:wapwap12@localhost:13241",
+                "paths": {
+                    "downloadOrderPath": "/gsma/rsp2/es2plusplus/downloadOrder",
+                    "confirmOrderPath": "/gsma/rsp2/es2plusplus/confirmOrder",
+                    "cancelOrderPath": "/gsma/rsp2/es2plusplus/cancelOrder"
+                },
+              "clientCertificateForSMDPServer": "",
+              "certificateKeyForSMDPServer": "",
+              "palSslCaFile": "",
+              "functionRequesterId": "",
+                "functionCallIdForDownloadOrder": "",
+                "functionCallIdForConfirmOrder": "",
+                "functionCallIdForCancelOrder": "",
+                "sesMaxActiveSubsPerEid": "3"
+            }
+        }
+    ]
+}
