@@ -1,0 +1,10 @@
+"genericesim":
+    DisplayedServiceName = "Generic eSIM Service"
+    SnmpApplIndex = 89
+    UserName = "miepusr"
+    StartCommand = "/opt/miep/tools/genericesim/startstop.sh start"
+    KillCommand = "/opt/miep/tools/genericesim/startstop.sh kill"
+    StopCommand = "/opt/miep/tools/genericesim/startstop.sh stop"
+    StatusCommand = "/opt/miep/tools/genericesim/startstop.sh status"
+    RestartTimer = 10
+    LongRestartTime = 600;
