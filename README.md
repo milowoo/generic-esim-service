@@ -1,5 +1,5 @@
 # generic-esim-service
-this is my first node.js project
+this is my first node.js project, use pgsql database and express framework.
 
 ## Design
 
