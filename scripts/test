@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+set -o pipefail
+npm run build
+_mocha -c "build/test/**/test-*$1*.js" | bunyan -L -o short
